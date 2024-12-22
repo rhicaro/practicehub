@@ -41,18 +41,14 @@ export const metadata: Metadata = {
  * {children} Inserts the content of the currently rendered
  * page inside the layout.
  */
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children}:{ children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      {/* <header className="p-4 bg-blue-500 text-white">My App Header</header> */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
+      {/* <footer className="p-4 bg-gray-200 text-center">© 2024 My App</footer> */}
     </html>
   );
 }
