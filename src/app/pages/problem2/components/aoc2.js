@@ -1,20 +1,14 @@
 import React, { use, useEffect } from 'react';
 
 /**
- * Originally I thought it was to compare the two numbers that
- * are in the same row. No you are comparing the differences of the two 
- * smallest numbers in the two columns so that means it is not 
- * in the same row. Explains why my value was off my around 1 million.
+ * Anwser: 23046913
  * 
- * Anwser: 1580061
- * 
- * TODO: How can i make this code better
+ * TODO: How can I improve this code
  * @param {*} param0 
  * @returns 
  */
 
-const Aoc1 = ({ value }) => {
-
+const Aoc2 = ({ value }) => {
     const getCol1 = (value) => {
         var total = 0;
         var col1 = value.split("\n");
@@ -28,24 +22,26 @@ const Aoc1 = ({ value }) => {
 
         leftCol = Object.values(leftCol).sort((a, b) => a - b);
         rightCol = Object.values(rightCol).sort((a, b) => a - b);
-
-        console.log(`This is the left column: ${leftCol}`);
-        console.log(`This is the right column: ${rightCol}`);
-
+        
+        const numbers = {};
+        // Multiplication update
         for (let i = 0; i < leftCol.length; i++) {
-            total += Math.abs(leftCol[i] - rightCol[i]);
+            var target = leftCol[i];
+            var count = rightCol.filter(num => num === target).length;
+            // numbers[target] = count;
+            total = total + (leftCol[i] * count);
         }
 
         console.log("This is the total cost after the function", total);
     }
-
+    
     useEffect(() => {
         getCol1(value);
     });
 
     return (
-        <div />
+        <div/>
     );
 };
 
-export default Aoc1;
+export default Aoc2;

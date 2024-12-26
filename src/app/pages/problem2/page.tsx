@@ -1,8 +1,8 @@
 'use client';
-import AOC1 from './components/aoc1';
+import AOC2 from './components/aoc2';
 import { useState } from 'react';
 
-export default function Problem1Page() {
+export default function Problem2Page() {
   const [inputValue, setInputValue] = useState('');
   const [value, setValue] = useState('');
 
@@ -16,7 +16,7 @@ export default function Problem1Page() {
 
   return (
     <div className="page-container">
-        <h1>Problem 1, Day 1 Advent of Code</h1>
+        <h1>Problem 2, Day 1 Advent of Code</h1>
       <div className="problem-container">
       </div>
 
@@ -29,12 +29,11 @@ export default function Problem1Page() {
           style={{ color: 'black' }}
         />
         <button className="problem-submit" onClick={handleSubmit}>Submit</button>
-        <AOC1 value={value}/>
+        <AOC2 value={value}/>
       </div>
 
       <div className="anwser-container">
         <h2>Answer:</h2>
-        {/* <p>{}</p> */}
       </div>
     </div>
   );
