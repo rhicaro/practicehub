@@ -1,4 +1,19 @@
+'use client';
+import AOC1 from './components/aoc1';
+import { useState } from 'react';
+
 export default function Problem1Page() {
+  const [inputValue, setInputValue] = useState('');
+  const [value, setValue] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputValue(e.target.value);
+  }
+
+  const handleSubmit = () => {
+    setValue(inputValue);
+  }
+
   return (
     <div className="page-container">
       <div className="problem-container">
@@ -49,8 +64,20 @@ export default function Problem1Page() {
         <p>Your actual left and right lists contain many location IDs. What is the total distance between your lists?</p>
       </div>
       <div className="solution-container">
-        <textarea className="problem-input" placeholder="Enter Problem Input"></textarea>
-        <button className="problem-submit">Submit</button>
+        <textarea 
+          className="problem-input" 
+          placeholder="Enter Problem Input"
+          value={inputValue}
+          onChange={handleInputChange}
+          style={{ color: 'black' }}
+        />
+        <button className="problem-submit" onClick={handleSubmit}>Submit</button>
+        <AOC1 value={value}/>
+      </div>
+
+      <div className="anwser-container">
+        <h2>Answer:</h2>
+        {/* <p>{}</p> */}
       </div>
     </div>
   );
